@@ -5,18 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio | Erick Rodríguez</title>
   <meta name="description" content="Portafolio web de Erick Rodríguez con experiencia profesional y minijuegos interactivos." />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      --bg: #121820;
-      --surface: rgba(30, 39, 49, 0.65);
-      --surface-border: rgba(155, 93, 255, 0.15);
-      --text: #f0f2f5;
-      --muted: #aab4c2;
-      --primary: #8a4fff;
-      --accent: #d67fff;
-      --neon: #b440ff;
+      color-scheme: dark;
+      --bg: #0e1114;
+      --surface: rgba(22, 27, 32, 0.9);
+      --surface-raised: #191e23;
+      --surface-border: rgba(219, 226, 232, 0.12);
+      --text: #edf0f2;
+      --muted: #a5adb5;
+      --silver: #cbd1d7;
+      --white: #f7f8f9;
     }
 
     * {
@@ -25,48 +26,49 @@
 
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      background:
+        radial-gradient(ellipse at 50% -20%, rgba(200, 210, 220, 0.09), transparent 46%),
+        var(--bg);
       color: var(--text);
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* Diseño orgánico en el fondo */
     .bg-blob {
       position: fixed;
-      filter: blur(80px);
-      opacity: 0.35;
-      z-index: -1;
+      filter: blur(100px);
+      opacity: 0.16;
+      z-index: 0;
       animation: floatBlob 12s infinite ease-in-out alternate;
     }
 
     .bg-blob-1 {
       width: 40vw;
       height: 40vw;
-      background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(196, 205, 214, 0.3) 0%, transparent 70%);
       top: -10%;
       left: -10%;
-      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      border-radius: 50%;
     }
 
     .bg-blob-2 {
       width: 50vw;
       height: 50vw;
-      background: radial-gradient(circle, var(--neon) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(142, 153, 164, 0.22) 0%, transparent 70%);
       bottom: -15%;
       right: -10%;
-      border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+      border-radius: 50%;
       animation-delay: -5s;
     }
 
     @keyframes floatBlob {
       0% { transform: translate(0, 0) scale(1) rotate(0deg); }
-      100% { transform: translate(50px, 30px) scale(1.1) rotate(15deg); }
+      100% { transform: translate(24px, 18px) scale(1.05); }
     }
 
     .container {
-      width: min(1200px, 92vw);
+      width: min(1080px, 92vw);
       margin: 0 auto;
       padding: 3rem 0;
       position: relative;
@@ -75,21 +77,28 @@
 
     h1, h2, h3 {
       text-align: center;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       margin: 0;
+      letter-spacing: -0.035em;
     }
 
     .hero, .section, .footer {
       background: var(--surface);
       border: 1px solid var(--surface-border);
-      border-radius: 28px;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      border-radius: 22px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.18);
     }
 
     .hero, .section {
-      padding: 2.5rem;
-      margin-bottom: 2rem;
+      padding: clamp(1.5rem, 4vw, 3rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero {
+      background:
+        linear-gradient(145deg, rgba(219, 226, 232, 0.055), transparent 55%),
+        var(--surface);
     }
 
     .profile {
@@ -101,35 +110,27 @@
     }
 
     .avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
       object-fit: cover;
-      border: 3px solid var(--accent);
-      box-shadow: 0 0 25px rgba(214, 127, 255, 0.3);
-      animation: morphAvatar 8s ease-in-out infinite alternate;
-    }
-
-    @keyframes morphAvatar {
-      0% { border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%; }
-      100% { border-radius: 60% 40% 40% 60% / 40% 60% 50% 50%; }
+      border: 1px solid rgba(226, 232, 237, 0.42);
+      box-shadow: 0 0 0 7px rgba(226, 232, 237, 0.035), 0 18px 42px rgba(0, 0, 0, 0.3);
     }
 
     .kicker {
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--accent);
+      color: var(--silver);
       margin: 0;
       font-size: 0.85rem;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     h1 {
       font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      background: linear-gradient(to right, #fff, var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+      color: var(--white);
     }
 
     .career-title {
@@ -155,24 +156,38 @@
       font-size: 0.95rem;
       border: 0;
       cursor: pointer;
-      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
-      font-family: 'Poppins', sans-serif;
+      transition: transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+      font-family: inherit;
     }
 
     .btn:hover {
-      transform: translateY(-3px) scale(1.05);
+      transform: translateY(-2px);
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--neon));
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(138, 79, 255, 0.4);
+      background: var(--white);
+      color: #171a1d;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
     }
 
-    .btn-neon {
-      background: linear-gradient(135deg, var(--accent), var(--neon));
-      color: #fff;
-      box-shadow: 0 4px 15px rgba(214, 127, 255, 0.4);
+    .btn-primary:hover {
+      background: #dce1e5;
+    }
+
+    .btn-secondary, .btn-outline {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(219, 226, 232, 0.2);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover, .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(219, 226, 232, 0.4);
+    }
+
+    .btn:focus-visible, canvas:focus-visible {
+      outline: 2px solid var(--silver);
+      outline-offset: 4px;
     }
 
     .section-head {
@@ -182,7 +197,7 @@
     h2 {
       font-size: 2.2rem;
       margin-bottom: 0.5rem;
-      color: #fff;
+      color: var(--white);
     }
 
     .section-head p {
@@ -199,31 +214,46 @@
     }
 
     .info-card {
-      background: rgba(18, 24, 32, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
+      background: var(--surface-raised);
+      border: 1px solid rgba(219, 226, 232, 0.09);
+      border-radius: 16px;
       padding: 1.5rem;
-      transition: transform 0.3s ease, background 0.3s ease;
+      transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, opacity 0.7s ease;
     }
 
     .info-card:hover {
-      transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.03);
+      transform: translateY(-3px);
+      background: #1d2329;
+      border-color: rgba(219, 226, 232, 0.18);
     }
 
     .info-card-wide {
       grid-column: 1 / -1;
     }
 
+    .info-card:nth-child(2) { transition-delay: 0.06s; }
+    .info-card:nth-child(3) { transition-delay: 0.12s; }
+    .info-card:nth-child(4) { transition-delay: 0.18s; }
+
     .info-card h3 {
-      color: var(--accent);
+      color: var(--silver);
       margin-bottom: 1rem;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
 
     .info-card p, .info-card li {
-      color: #d1d5db;
-      line-height: 1.7;
+      color: #c4cbd1;
+      line-height: 1.75;
+    }
+
+    .info-card strong {
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .info-card small {
+      color: var(--muted);
+      font-size: 0.86rem;
     }
 
     .info-list {
@@ -234,6 +264,10 @@
       gap: 0.8rem;
     }
 
+    .info-list li::marker {
+      color: var(--silver);
+    }
+
     .games-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -242,17 +276,22 @@
     }
 
     .game-card {
-      background: rgba(18, 24, 32, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
+      background: var(--surface-raised);
+      border: 1px solid rgba(219, 226, 232, 0.1);
+      border-radius: 18px;
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
+      transition: border-color 0.3s ease, opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .game-card:nth-child(2) {
+      transition-delay: 0.1s;
     }
 
     .game-card h3 {
-      color: var(--accent);
+      color: var(--silver);
       margin-bottom: 0.5rem;
     }
 
@@ -268,7 +307,8 @@
       gap: 1.5rem;
       margin-bottom: 1rem;
       font-size: 0.95rem;
-      background: rgba(0,0,0,0.2);
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(219, 226, 232, 0.07);
       padding: 0.5rem 1rem;
       border-radius: 12px;
     }
@@ -276,11 +316,11 @@
     canvas {
       width: 100%;
       max-width: 100%;
-      border-radius: 16px;
-      background: #0d1117;
-      border: 2px solid rgba(138, 79, 255, 0.3);
+      border-radius: 14px;
+      background: #101418;
+      border: 1px solid rgba(219, 226, 232, 0.16);
       margin-top: 1rem;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
       cursor: pointer;
     }
 
@@ -290,20 +330,26 @@
     }
 
     .footer {
+      position: relative;
+      z-index: 1;
       padding: 1.5rem;
       text-align: center;
       font-size: 0.9rem;
       color: var(--muted);
     }
 
-    /* Animaciones robustas */
-    .reveal {
-      transition: opacity 0.8s ease, transform 0.8s ease;
+    .footer p {
+      margin: 0;
     }
 
-    .js-enabled .reveal:not(.visible) {
+    .reveal, .reveal-item {
+      transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.2, 0.65, 0.3, 1), background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .js-enabled .reveal:not(.visible),
+    .js-enabled .reveal-item:not(.visible) {
       opacity: 0;
-      transform: translateY(40px);
+      transform: translateY(22px);
     }
 
     @media (max-width: 900px) {
@@ -316,11 +362,25 @@
     }
 
     @media (max-width: 600px) {
-      .hero, .section {
-        padding: 1.5rem;
-      }
       h1 { font-size: 1.8rem; }
       h2 { font-size: 1.6rem; }
+      .links { gap: 0.65rem; }
+      .btn { padding: 0.68rem 1.1rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .js-enabled .reveal:not(.visible),
+      .js-enabled .reveal-item:not(.visible) {
+        opacity: 1;
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -332,14 +392,14 @@
   <main class="container">
     <header class="hero reveal">
       <div class="profile">
-        <img id="avatar" src="https://via.placeholder.com/150/8a4fff/FFFFFF?text=Erick" alt="Cargando perfil..." class="avatar" />
+        <img id="avatar" src="https://via.placeholder.com/150/252a30/e7e9eb?text=Erick" alt="Cargando perfil..." class="avatar" />
         <p class="kicker">Perfil Profesional IT</p>
         <h1 id="name">Erick Daniel Rodríguez</h1>
         <p class="career-title">Lic. en Tecnologías de la Información y Comunicación</p>
         <div class="links">
-          <a id="github-link" class="btn btn-ghost" href="#" target="_blank" rel="noreferrer" style="border: 1px solid var(--muted); color: var(--text);">GitHub</a>
-          <a id="linkedin-link" class="btn btn-primary" href="www.linkedin.com/in/erick-rodríguez-062911230" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="mailto:erickcorreo26@gmail.com" class="btn btn-neon">Contactar</a>
+          <a id="github-link" class="btn btn-outline" href="#" target="_blank" rel="noreferrer">GitHub</a>
+          <a id="linkedin-link" class="btn btn-secondary" href="www.linkedin.com/in/erick-rodríguez-062911230" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="mailto:erickcorreo26@gmail.com" class="btn btn-primary">Contactar</a>
         </div>
       </div>
     </header>
@@ -350,14 +410,14 @@
         <p>Experiencia en continuidad operativa, gestión de servicios TI y soporte técnico corporativo.</p>
       </div>
       <div class="info-grid">
-        <article class="info-card info-card-wide">
+        <article class="info-card info-card-wide reveal-item">
           <h3>Extracto Profesional</h3>
           <p id="career-summary" style="text-align: center;">
             Profesional enfocado en la continuidad operativa y la gestión integral de servicios de TI bajo estándares ITIL y entornos multicanal (ServiceNow). Experiencia en la administración de identidades en Active Directory, soporte especializado a plataformas Microsoft 365 y gestión de conectividad e infraestructura de red corporativa.
           </p>
         </article>
         
-        <article class="info-card">
+        <article class="info-card reveal-item">
           <h3>Experiencia</h3>
           <ul class="info-list">
             <li><strong>SDC México (Deloitte)</strong> - Analista de servicio técnico<br><small>ago 2024 - Presente</small><br>Soporte técnico multicanal, gestión de incidentes (ServiceNow), escalamiento estratégico y optimización de flujos de trabajo.</li>
@@ -366,7 +426,7 @@
           </ul>
         </article>
 
-        <article class="info-card">
+        <article class="info-card reveal-item">
           <h3>Educación y Habilidades</h3>
           <ul class="info-list">
             <li><strong>Licenciatura en TIC</strong><br>Univ. Nacional Rosario Castellanos (2024 - 2027)</li>
@@ -378,7 +438,7 @@
           </ul>
         </article>
 
-        <article class="info-card">
+        <article class="info-card reveal-item">
           <h3>Certificaciones</h3>
           <ul class="info-list">
             <li>Soporte Técnico a Computadoras en Entornos Corporativos</li>
@@ -393,31 +453,31 @@
 
     <section class="section reveal">
       <div class="section-head">
-        <h2>Aburrido? juega con mi rostro</h2>
+        <h2>Un descanso interactivo</h2>
         <p>Dos minijuegos interactivos creados desde cero. Selecciona uno para comenzar a jugar.</p>
       </div>
       <div class="games-grid">
         <!-- Minijuego 1: Break Bricks -->
-        <article class="game-card">
+        <article class="game-card reveal-item">
           <h3>Break Bricks</h3>
           <p class="game-help">Usa las flechas ← → o desliza sobre el juego para mover la barra.</p>
           <div class="game-info">
             <span>Puntaje: <strong id="score">0</strong></span>
             <span>Vidas: <strong id="lives">3</strong></span>
           </div>
-          <button id="start-bricks" class="btn btn-neon" type="button">Jugar Break Bricks</button>
+          <button id="start-bricks" class="btn btn-primary" type="button">Jugar Break Bricks</button>
           <canvas id="brick-game" width="700" height="400" aria-label="Mini juego Break Bricks"></canvas>
         </article>
 
         <!-- Minijuego 2: Rompecabezas -->
-        <article class="game-card">
+        <article class="game-card reveal-item">
           <h3>Rompecabezas</h3>
           <p class="game-help">Toca dos piezas para intercambiarlas de lugar y armar mi foto.</p>
           <div class="game-info">
             <span>Movimientos: <strong id="moves">0</strong></span>
             <span>Estado: <strong id="puzzle-status">Listo</strong></span>
           </div>
-          <button id="start-puzzle" class="btn btn-primary" type="button">Iniciar Rompecabezas</button>
+          <button id="start-puzzle" class="btn btn-secondary" type="button">Iniciar Rompecabezas</button>
           <canvas id="puzzle-game" width="420" height="420" aria-label="Mini juego rompecabezas"></canvas>
         </article>
       </div>
@@ -460,13 +520,13 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1 });
-      document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+      }, { threshold: 0.08, rootMargin: "0px 0px -24px 0px" });
+      document.querySelectorAll(".reveal, .reveal-item").forEach(el => observer.observe(el));
     } else {
-      // Respaldo para navegadores antiguos
-      document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
+      document.querySelectorAll(".reveal, .reveal-item").forEach(el => el.classList.add("visible"));
     }
 
     // Cargar información y foto de GitHub
@@ -489,7 +549,7 @@
       } catch (error) {
         console.error("Modo local o sin conexión: Usando imagen de respaldo.");
         avatarImage = new Image();
-        avatarImage.src = "https://via.placeholder.com/150/8a4fff/FFFFFF?text=Erick";
+        avatarImage.src = "https://via.placeholder.com/150/252a30/e7e9eb?text=Erick";
         avatarImage.onload = () => showWaitingState();
         avatarImage.onerror = () => showWaitingState();
       }
@@ -500,20 +560,20 @@
       // Canvas Bricks
       const bCtx = brickCanvas.getContext("2d");
       bCtx.clearRect(0, 0, brickCanvas.width, brickCanvas.height);
-      bCtx.fillStyle = "rgba(13, 17, 23, 0.8)";
+      bCtx.fillStyle = "rgba(15, 19, 23, 0.96)";
       bCtx.fillRect(0, 0, brickCanvas.width, brickCanvas.height);
-      bCtx.fillStyle = "#d67fff";
-      bCtx.font = "600 24px Inter, sans-serif";
+      bCtx.fillStyle = "#cbd1d7";
+      bCtx.font = '600 24px "DM Sans", sans-serif';
       bCtx.textAlign = "center";
       bCtx.fillText("Presiona el botón para jugar", brickCanvas.width / 2, brickCanvas.height / 2);
 
       // Canvas Puzzle
       const pCtx = puzzleCanvas.getContext("2d");
       pCtx.clearRect(0, 0, puzzleCanvas.width, puzzleCanvas.height);
-      pCtx.fillStyle = "rgba(13, 17, 23, 0.8)";
+      pCtx.fillStyle = "rgba(15, 19, 23, 0.96)";
       pCtx.fillRect(0, 0, puzzleCanvas.width, puzzleCanvas.height);
-      pCtx.fillStyle = "#d67fff";
-      pCtx.font = "600 22px Inter, sans-serif";
+      pCtx.fillStyle = "#cbd1d7";
+      pCtx.font = '600 22px "DM Sans", sans-serif';
       pCtx.textAlign = "center";
       pCtx.fillText("Presiona el botón para armar", puzzleCanvas.width / 2, puzzleCanvas.height / 2);
     }
@@ -561,14 +621,14 @@
           for (let c = 0; c < cols; c++) {
             let b = bricks[r][c];
             if (b.status === 1) {
-              ctx.fillStyle = (r + c) % 2 === 0 ? "#b440ff" : "#8a4fff";
+              ctx.fillStyle = (r + c) % 2 === 0 ? "#cbd1d7" : "#7f8993";
               ctx.fillRect(b.x, b.y, brickW, brickH);
             }
           }
         }
 
         // Dibujar barra (Paddle)
-        ctx.fillStyle = "#d67fff";
+        ctx.fillStyle = "#e3e7ea";
         ctx.fillRect(paddle.x, h - paddle.height - 10, paddle.width, paddle.height);
 
         // Dibujar Pelota (Con tu foto si existe)
@@ -590,7 +650,7 @@
           ctx.fillStyle = "rgba(0,0,0,0.7)";
           ctx.fillRect(0,0,w,h);
           ctx.fillStyle = "#fff";
-          ctx.font = "bold 30px Poppins";
+          ctx.font = '600 30px "DM Sans", sans-serif';
           ctx.textAlign = "center";
           ctx.fillText(lives > 0 ? "¡Ganaste!" : "Game Over", w/2, h/2);
           return; 
@@ -696,7 +756,7 @@
           if (avatarImage && avatarImage.complete && avatarImage.width > 0) {
             ctx.drawImage(avatarImage, sx, sy, tileSize, tileSize, dx, dy, tileSize, tileSize);
           } else {
-            ctx.fillStyle = "#8a4fff";
+            ctx.fillStyle = "#7f8993";
             ctx.fillRect(dx, dy, tileSize, tileSize);
           }
 
@@ -705,7 +765,7 @@
           ctx.strokeRect(dx, dy, tileSize, tileSize);
 
           if (selected === i) {
-            ctx.strokeStyle = "#d67fff";
+            ctx.strokeStyle = "#edf0f2";
             ctx.lineWidth = 6;
             ctx.strokeRect(dx+3, dy+3, tileSize-6, tileSize-6);
           }
@@ -735,7 +795,7 @@
             
             if (tiles.every((val, i) => val === solved[i])) {
               puzzleStatusEl.textContent = "¡Completado!";
-              ctx.fillStyle = "rgba(214, 127, 255, 0.4)";
+              ctx.fillStyle = "rgba(203, 209, 215, 0.32)";
               ctx.fillRect(0,0, puzzleCanvas.width, puzzleCanvas.height);
             }
           }
